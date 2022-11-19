@@ -20,7 +20,7 @@ public class PhoneBook {
     public void createRecord(Record record) throws PhoneNumberAlreadyExists {
         for (Record i : group) {
             if (Objects.equals(i.getPhoneNumber(), record.getPhoneNumber())) {
-                throw new PhoneNumberAlreadyExists("Номер телефона уже существует.", record.getPhoneNumber());
+                throw new PhoneNumberAlreadyExists("Номер телефона уже существует." + number);
             }
         }
         group.add(record);
@@ -37,7 +37,7 @@ public class PhoneBook {
                 if (!Objects.equals(i.getPhoneNumber(), record.getPhoneNumber())) {
                     for (Record j : group) {
                         if (Objects.equals(j.getPhoneNumber(), record.getPhoneNumber())) {
-                            throw new PhoneNumberAlreadyExists("Нельзя добавить номер телефона. Такой уже существует.", record.getPhoneNumber());
+                            throw new PhoneNumberAlreadyExists("Нельзя добавить номер телефона. Такой уже существует." + number);
                         }
                     }
                     i.setName(record.getName());
